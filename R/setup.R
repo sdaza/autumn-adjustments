@@ -364,3 +364,12 @@ pretty_print_helper = function(named_vector) {
   # Combine across each set of variables.
   paste0(each_row, collapse="")
 }
+
+
+# Normalize weights in target (to sum up 1)
+normalize = function(target) {
+  for (h in seq_along(target)) {
+    target[[h]] = target[[h]] / sum(target[[h]])
+  }
+  return(target)
+}
