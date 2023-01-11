@@ -107,3 +107,12 @@ diagnose_weights = function(data, target=NULL, weights=NULL) {
     )
   }))
 }
+
+
+# Normalize weights in target (to sum up 1)
+normalize = function(target) {
+  for (h in seq_along(target)) {
+    target[[h]] = target[[h]] / sum(target[[h]])
+  }
+  return(target)
+}
